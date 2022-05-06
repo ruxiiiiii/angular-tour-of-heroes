@@ -1,0 +1,18 @@
+<!-- The word uppercase in the interpolation binding, 
+  right after the pipe operator ( | ),
+  activates the built-in UppercasePipe -->
+
+<!-- Pipes are a good way to format strings,
+ currency amounts, dates and other display data.
+ Angular ships with several built-in pipes and you can create your own. -->
+
+<h2>{{ hero.name | uppercase }} Details</h2>
+<div><span>id: </span>{{ hero.id }}</div>
+<div>
+  <label for="name">Hero name: </label>
+
+  <!-- [(ngModel)] is Angular's two-way data binding syntax. 
+ to make data flow from the component class 
+ out to the screen and from the screen back to the class-->
+  <input id="name" [(ngModel)]="hero.name" placeholder="name" />
+</div>
