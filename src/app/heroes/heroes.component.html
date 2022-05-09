@@ -10,18 +10,33 @@
   <!-- The *ngFor is Angular's repeater directive. 
   It repeats the host element for each element in a list. -->
   <li *ngFor="let hero of heroes">
-    <button type="button"></button>
-    <span class="badge">{{ hero.id }}</span>
-    <span class="name">{{ hero.name }}</span>
+    <!-- The parentheses around click tell Angular to listen for the <button> element's click event -->
+    <button
+      [class.selected]="hero === selectedHero"
+      type="button"
+      (click)="onSelect(hero)"
+    >
+      <span class="badge">{{ hero.id }}</span>
+      <span class="name">{{ hero.name }}</span>
+    </button>
   </li>
 </ul>
-<h2>{{ hero.name | uppercase }} Details</h2>
-<div><span>id: </span>{{ hero.id }}</div>
-<div>
-  <label for="name">Hero name: </label>
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div>id:{{ selectedHero.id }}</div>
 
-  <!-- [(ngModel)] is Angular's two-way data binding syntax. 
+  <div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+
+      <!-- [(ngModel)] is Angular's two-way data binding syntax. 
  to make data flow from the component class 
  out to the screen and from the screen back to the class-->
-  <input id="name" [(ngModel)]="hero.name" placeholder="name" />
+      <input
+        id="hero-name"
+        [(ngModel)]="selectedHero.name"
+        placeholder="name"
+      />
+    </div>
+  </div>
 </div>
