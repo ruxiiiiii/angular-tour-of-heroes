@@ -23,20 +23,14 @@
 </ul>
 <div *ngIf="selectedHero">
   <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div>id:{{ selectedHero.id }}</div>
+  <div>id: {{ selectedHero.id }}</div>
 
   <div>
-    <div>
-      <label for="hero-name">Hero name: </label>
+    <label for="hero-name">Hero name: </label>
 
-      <!-- [(ngModel)] is Angular's two-way data binding syntax. 
+    <!-- [(ngModel)] is Angular's two-way data binding syntax. 
  to make data flow from the component class 
  out to the screen and from the screen back to the class-->
-      <input
-        id="hero-name"
-        [(ngModel)]="selectedHero.name"
-        placeholder="name"
-      />
-    </div>
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name" />
   </div>
 </div>
